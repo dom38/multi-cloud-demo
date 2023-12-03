@@ -1,13 +1,14 @@
 apiVersion: core.karmada.io/v1alpha1
-kind: KarmadaConfiguration
+kind: KarmadaPropagationPolicy
 metadata:
   name: externalDNS
 spec:
-  placement:
-    clusters:
-    {{- .Values.clusters | toYaml | nindent 4 }}
   template:
     spec:
+      placement:
+        clusterAffinity:
+          clusterNames:
+            {{- .Values.clusters | toYaml | nindent 12 }}
       providerRef:
         name: helm
       resources:
