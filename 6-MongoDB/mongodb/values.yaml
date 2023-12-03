@@ -1,0 +1,3 @@
+clusters:
+  - demo-eks-cluster
+  - demo-gke-cluster

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: mongodb
+description: Uses Karmada to deploy mongoDB to multiple clusters
+type: application
+version: 0.1.0
