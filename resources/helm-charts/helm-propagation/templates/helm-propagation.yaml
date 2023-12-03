@@ -41,10 +41,6 @@ spec:
     clusterAffinity:
       clusterNames:
         {{- $.Values.clusters | toYaml | nindent 8 }}
-  {{- with .overrideRules }}
-  overrideRules: 
-    {{- . | toYaml | nindent 4}}
-  {{- end }}
 ---
 
 apiVersion: policy.karmada.io/v1alpha1
