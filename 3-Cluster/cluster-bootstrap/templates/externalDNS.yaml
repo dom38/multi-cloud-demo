@@ -17,8 +17,8 @@ spec:
         metadata:
           name: external-dns
         spec:
-          releaseName: external-dns
-          chart: "bitnami/external-dns"
-          version: "latest"
+          chart: external-dns
+          repo: https://kubernetes-sigs.github.io/external-dns/
+          version: 1.13.1
           valuesContent: |-
             # Customize values here
