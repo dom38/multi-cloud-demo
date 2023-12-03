@@ -27,4 +27,4 @@ The repository contains demo setup for deploying:
 
 ## Todo
 
-- Switch Karmada propagation to use flux
+- Test it all
