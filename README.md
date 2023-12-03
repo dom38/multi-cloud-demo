@@ -24,3 +24,7 @@ The repository contains demo setup for deploying:
 - A GCP account with either:
   - A Service Account with credentials exported as a secret
   - Correct IAM setup for service accounts to be assigned to pods with the correct permissions
+
+## Todo
+
+- Switch Karmada propagation to use flux
