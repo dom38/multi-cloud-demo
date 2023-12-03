@@ -1,3 +1,7 @@
 # 2-Karmada-Bootstrap
 
-The application in this folder will deploy 2 helm releases in each of the new kubernetes clusters created by crossplane. It will also pass the config to our main cluster that will add the new clusters to the Karmada control plane.
+The application in this folder will deploy:
+
+- A Karmada agent in both clusters
+- Resources that link our agents up to the central Karmada control plane
+- The Helm operator in each cluster so Karmada can deploy Helm releases

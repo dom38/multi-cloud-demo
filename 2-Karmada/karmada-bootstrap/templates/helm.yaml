@@ -1,0 +1,35 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: HelmRelease
+metadata:
+  name: helm-aws-operator
+spec:
+  providerConfigRef:
+    name: aws-helm-provider
+  chart:
+    repository: https://charts.fluxcd.io
+    version:  1.4.4
+    name: helm-operator
+  values:
+    karmada:
+      agent:
+        enabled: true
+      # Add other values as needed
+  namespace: helm-operator
+---
+apiVersion: helm.crossplane.io/v1beta1
+kind: HelmRelease
+metadata:
+  name: helm-gcp-operator
+spec:
+  providerConfigRef:
+    name: gcp-helm-provider
+  chart:
+    repository: https://charts.fluxcd.io
+    version:  1.4.4
+    name: helm-operator
+  values:
+    karmada:
+      agent:
+        enabled: true
+      # Add other values as needed
+  namespace: helm-operator
