@@ -6,9 +6,9 @@ spec:
   providerConfigRef:
     name: aws-helm-provider
   chart:
-    repository: https://charts.fluxcd.io
-    version:  1.4.4
-    name: helm-operator
+    repository: https://fluxcd-community.github.io/helm-charts
+    version:  2.11.1
+    name: flux2
   values:
     karmada:
       agent:
@@ -24,9 +24,9 @@ spec:
   providerConfigRef:
     name: gcp-helm-provider
   chart:
-    repository: https://charts.fluxcd.io
-    version:  1.4.4
-    name: helm-operator
+    repository: https://fluxcd-community.github.io/helm-charts
+    version:  2.11.1
+    name: flux2
   values:
     karmada:
       agent:
