@@ -1,0 +1,5 @@
+apiVersion: v2
+name: helm-propagation
+description: This chart takes a list of clusters, helm charts, and secrets, and generates the karmada resources to propagate the helm charts and secrets across the list of clusters. 
+type: application
+version: 0.1.0

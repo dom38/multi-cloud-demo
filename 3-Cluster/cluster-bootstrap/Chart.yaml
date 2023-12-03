@@ -1,5 +1,0 @@
-apiVersion: v2
-name: cluster-bootstrap
-description: Uses Karmada to deploy a set of applications considered necessary to bootstrap a server.
-type: application
-version: 0.1.0

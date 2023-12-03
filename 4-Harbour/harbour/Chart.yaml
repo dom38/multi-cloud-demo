@@ -1,5 +1,0 @@
-apiVersion: v2
-name: harbour
-description: Uses Karmada to deploy a harbour instance per cluster
-type: application
-version: 0.1.0

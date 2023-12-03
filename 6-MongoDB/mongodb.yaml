@@ -12,7 +12,18 @@ spec:
   source:
     repoURL: https://github.com/dom38/multi-cloud-demo.git
     targetRevision: main
-    path: 6-MongoDB/mongodb
+    path: resources/helm-charts/helm-propagation
+    values: |
+      clusters:
+        - demo-eks-cluster
+        - demo-gke-cluster
+      helm:
+        - chart: psmdb-operator
+          repo: https://percona.github.io/percona-helm-charts/
+          version: 1.15.0
+        - chart: psmdb-db
+          repo: https://percona.github.io/percona-helm-charts/
+          version: 1.15.0
 
   destination:
     server: https://kubernetes.default.svc

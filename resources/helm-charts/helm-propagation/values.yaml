@@ -1,0 +1,12 @@
+# -- A list of cluster names registered on your Karmada API server
+clusters: []
+
+# -- The helm charts, using repo, version, and chart. Optionally you can provide overrideRules and cluster
+helm: []
+# helm:
+#   - chart: psmdb-operator
+#     repo: https://percona.github.io/percona-helm-charts/
+#     version: 1.15.0
+
+# -- The secrets, using name and namespace.
+secret: [] 

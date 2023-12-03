@@ -12,7 +12,15 @@ spec:
   source:
     repoURL: https://github.com/dom38/multi-cloud-demo.git
     targetRevision: main
-    path: 5-CockroachDB/cockroachdb
+    path: resources/helm-charts/helm-propagation
+    values: |
+      clusters:
+        - demo-eks-cluster
+        - demo-gke-cluster
+      helm:
+        - chart: cockroachdb
+          repo: https://charts.cockroachdb.com/
+          version: 23.1.12
 
   destination:
     server: https://kubernetes.default.svc

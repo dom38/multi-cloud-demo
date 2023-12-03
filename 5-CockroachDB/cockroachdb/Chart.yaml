@@ -1,5 +1,0 @@
-apiVersion: v2
-name: cockroachdb
-description: Uses Karmada to deploy cockroachDB to multiple clusters
-type: application
-version: 0.1.0

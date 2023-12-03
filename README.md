@@ -7,6 +7,7 @@ The repository contains demo setup for deploying:
 - Bootstrapping the clusters using Karmada, including:
   - Nginx ingress controller
   - ExternalDNS and updating Cloudflare entries
+  - cert-manager, for cluster mTLS
 - Harbour on both clusters for an image registry
 - CockroachDB with Multi-region replication
 - Percona MongoDB with Multi-region replication

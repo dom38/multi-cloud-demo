@@ -12,7 +12,24 @@ spec:
   source:
     repoURL: https://github.com/dom38/multi-cloud-demo.git
     targetRevision: main
-    path: 3-Cluster/cluster-bootstrap
+    path: resources/helm-charts/helm-propagation
+    values: |
+      clusters:
+        - demo-eks-cluster
+        - demo-gke-cluster
+      helm:
+        - chart: external-dns
+          version:
+          repo: 1.13.1
+        - chart: nginx-ingress
+          repo: https://kubernetes.github.io/ingress-nginx
+          version: 4.8.3
+        - chart: cert-manager
+          repo: https://charts.jetstack.io
+          version: 1.13.2
+      secret:
+        - name: externaldns-secret
+          namespace: externaldns
 
   destination:
     server: https://kubernetes.default.svc
