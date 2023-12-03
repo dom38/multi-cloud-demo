@@ -1,3 +1,8 @@
 clusters:
   - demo-eks-cluster
   - demo-gke-cluster
+
+helm:
+  - chart: cockroachdb
+    repo: https://charts.cockroachdb.com/
+    version: 23.1.12

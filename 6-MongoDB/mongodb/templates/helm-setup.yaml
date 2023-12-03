@@ -1,0 +1,50 @@
+{{- range .Values.helm }}
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: {{ .chart }}
+spec:
+  interval: 1m
+  url: {{ .repo }}
+
+---
+
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: {{ .chart }}
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: {{ .chart }}
+      version: {{ .version }}
+      sourceRef:
+        kind: HelmRepository
+        name: {{ .chart }}
+
+---
+
+{{ end }}
+
+{{- range .Values.helm }}
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: {{ .chart }}
+spec:
+  resourceSelectors:
+    - apiVersion: source.toolkit.fluxcd.io/v1beta2
+      kind: HelmRepository
+      name: {{ .chart }}
+  placement:
+    clusterAffinity:
+      clusterNames:
+        {{- $.Values.clusters | toYaml | nindent 8 }}
+  {{- with .overrideRules }}
+  overrideRules: 
+    {{- . | toYaml | nindent 4}}
+  {{- end }}
+---
+{{- end }}
+

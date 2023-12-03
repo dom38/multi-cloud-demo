@@ -1,3 +1,43 @@
 clusters:
   - demo-eks-cluster
   - demo-gke-cluster
+
+helm:
+  - chart: harbor
+    repo: https://helm.goharbor.io
+    version: 1.13.1
+    overrideRules:
+      - targetCluster:
+          clusterNames:
+            - demo-eks-cluster
+        overriders:
+          plaintext:
+            - path: "/spec/values"
+              operator: add
+              value:
+                harbor:
+                  expose:
+                    ingress:
+                      host: "aws-harbor.example.com"
+                replication:
+                  enabled: true
+                  endpoint: "https://gcp-harbor.example.com"
+                  username: "<replication-username>"
+                  password: "<replication-password>"
+      - targetCluster:
+          clusterNames:
+            - demo-gke-cluster
+        overriders:
+          plaintext:
+            - path: "/spec/values"
+              operator: add
+              value:
+                harbor:
+                  expose:
+                    ingress:
+                      host: "gcp-harbor.example.com"
+                replication:
+                  enabled: true
+                  endpoint: "https://aws-harbor.example.com"
+                  username: "<replication-username>"
+                  password: "<replication-password>"
