@@ -1,0 +1,15 @@
+apiVersion: container.gcp.upbound.io/v1beta1
+kind: Cluster
+metadata:
+  name: demo-cluster
+spec:
+  providerConfigRef:
+    name: gcp-config
+  forProvider:
+    initialNodeCount: 1
+    location: europe-west1-b
+    loggingService: logging.googleapis.com/kubernetes
+    monitoringService: monitoring.googleapis.com/kubernetes
+    network: "default"
+  writeConnectionSecretToRef:
+    name: gcp-demo-cluster-kubeconfig

@@ -1,0 +1,13 @@
+apiVersion: eks.crossplane.io/v1alpha1
+kind: EKSNodeGroup
+metadata:
+  name: demo-node-group
+spec:
+  providerConfigRef:
+    name: aws-config
+  clusterRef:
+    name: demo-cluster
+  region: eu-west-1
+  nodeGroupName: demo-node-group
+  nodeAutoScalingGroupMinSize: 1
+  nodeAutoScalingGroupMaxSize: 3

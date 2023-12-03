@@ -1,0 +1,5 @@
+apiVersion: v2
+name: crossplane-gke
+description: Deploys a minimal GKE cluster
+type: application
+version: 0.1.0

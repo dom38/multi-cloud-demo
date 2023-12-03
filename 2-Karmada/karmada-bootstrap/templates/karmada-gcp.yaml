@@ -1,0 +1,17 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: HelmRelease
+metadata:
+  name: karmada-agent-gke
+spec:
+  providerConfigRef:
+    name: gcp-helm-provider
+  chart:
+    repository: https://raw.githubusercontent.com/karmada-io/karmada/master/charts
+    version:  1.7.1
+    name: karmada
+  values:
+    karmada:
+      agent:
+        enabled: true
+      # Add other values as needed
+  namespace: karmada-agent

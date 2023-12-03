@@ -1,0 +1,26 @@
+apiVersion: karmada.io/v1alpha1
+kind: KarmadaCluster
+metadata:
+  name: demo-gke-cluster
+spec:
+  kubeConfigSecretRef:
+    name: gcp-demo-cluster-kubeconfig
+---
+apiVersion: karmada.io/v1alpha1
+kind: KarmadaCluster
+metadata:
+  name: demo-eks-cluster
+spec:
+  kubeConfigSecretRef:
+    name: aws-demo-cluster-kubeconfig
+
+---
+
+apiVersion: karmada.io/v1alpha1
+kind: KarmadaPolicy
+metadata:
+  name: eks-gke-link
+spec:
+  clusters:
+    - demo-eks-cluster
+    - demo-gke-cluster

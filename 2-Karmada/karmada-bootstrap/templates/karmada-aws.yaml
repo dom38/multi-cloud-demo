@@ -1,0 +1,17 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: HelmRelease
+metadata:
+  name: karmada-agent-eks
+spec:
+  providerConfigRef:
+    name: aws-helm-provider
+  chart:
+    repository: https://raw.githubusercontent.com/karmada-io/karmada/master/charts
+    version:  1.7.1
+    name: karmada
+  values:
+    karmada:
+      agent:
+        enabled: true
+      # Add other values as needed
+  namespace: karmada-agent

@@ -1,0 +1,12 @@
+apiVersion: container.gcp.upbound.io/v1beta1
+kind: NodePool
+metadata:
+  name: test-node-pool
+spec:
+  providerConfigRef:
+    name: gcp-config
+  forProvider:
+    clusterRef:
+      name: test-cluster     
+    initialNodeCount: 1
+    location: europe-west1-b

@@ -1,0 +1,23 @@
+apiVersion: core.karmada.io/v1alpha1
+kind: KarmadaConfiguration
+metadata:
+  name: ingress
+spec:
+  placement:
+    clusters:
+    {{- .Values.clusters | toYaml | nindent 4 }}
+  template:
+    spec:
+      providerRef:
+        name: helm
+      resources:
+      - apiVersion: helm.cattle.io/v1
+        kind: HelmChart
+        metadata:
+          name: nginx-ingress
+        spec:
+          releaseName: nginx-ingress
+          chart: "nginx-stable/nginx-ingress"
+          version: "latest"
+          valuesContent: |-
+            # Customize values here

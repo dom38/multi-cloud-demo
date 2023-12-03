@@ -1,0 +1,10 @@
+apiVersion: eks.crossplane.io/v1alpha1
+kind: EKSCluster
+metadata:
+  name: demo-cluster
+spec:
+  providerConfigRef:
+    name: aws-config
+  region: eu-west-1
+  writeConnectionSecretToRef:
+    name: aws-demo-cluster-kubeconfig

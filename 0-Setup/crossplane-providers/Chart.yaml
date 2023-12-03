@@ -1,0 +1,5 @@
+apiVersion: v2
+name: crossplane-providers
+description: Deploys providers for Crossplane to use in Multi-cloud demo
+type: application
+version: 0.1.0

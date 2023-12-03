@@ -1,0 +1,23 @@
+apiVersion: core.karmada.io/v1alpha1
+kind: KarmadaConfiguration
+metadata:
+  name: externalDNS
+spec:
+  placement:
+    clusters:
+    {{- .Values.clusters | toYaml | nindent 4 }}
+  template:
+    spec:
+      providerRef:
+        name: helm
+      resources:
+      - apiVersion: helm.cattle.io/v1
+        kind: HelmChart
+        metadata:
+          name: external-dns
+        spec:
+          releaseName: external-dns
+          chart: "bitnami/external-dns"
+          version: "latest"
+          valuesContent: |-
+            # Customize values here
