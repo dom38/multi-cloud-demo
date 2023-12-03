@@ -18,9 +18,9 @@ spec:
         metadata:
           name: harbor-chart
         spec:
-          releaseName: harbor
-          chart: "harbor/harbor"
-          version: "latest"
+          chart: harbor
+          repo: https://helm.goharbor.io
+          version: 1.13.1
           valuesContent: |-
             # Customize values here for AWS cluster
             harbor:
@@ -54,9 +54,9 @@ spec:
         metadata:
           name: harbor-chart
         spec:
-          releaseName: harbor
-          chart: "harbor/harbor"
-          version: "latest"
+          chart: harbor
+          repo: https://helm.goharbor.io
+          version: 1.13.1
           valuesContent: |-
             # Customize values here for GCP cluster
             harbor:
